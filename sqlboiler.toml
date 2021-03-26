@@ -1,0 +1,15 @@
+pkgname = "dao"
+output = "dao"
+wipe = true
+no-tests = true
+
+[mysql]
+dbname = "manable"
+host = "db"
+port = 3306
+user = "root"
+pass = "password"
+sslmode = "false"
+blacklist = [
+  "organization_jobs", "failed_organization_jobs", "job_status", # 管理画面（PHP）向けのテーブル
+]

@@ -1,0 +1,29 @@
+version: "3"
+services:
+  db:
+      build:
+        context: "./mysql"
+      ports:
+        - "3306:3306"
+      environment:
+        - "MYSQL_ROOT_PASSWORD=password"
+      volumes:
+        - "./mysql/conf:/etc/mysql/conf.d"
+        - "./mysql/init:/docker-entrypoint-initdb.d"
+  dev:
+    build:
+      context: "./"
+      dockerfile: "./Dockerfile"
+    ports:
+      - "8080:8080"
+      - "8079:8079"
+      - "3000:3000"
+      - "2345:2345"
+    volumes:
+      - "./:/app"
+    tty: true
+    environment:
+      - "DB_USER=root"
+      - "DB_PASSWORD=password"
+      - "DB_HOST=db"
+      - "DB_NAME=manable"

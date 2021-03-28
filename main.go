@@ -53,11 +53,11 @@ func test(w http.ResponseWriter, r *http.Request, db *sql.DB) {
 		dao.UserWhere.ID.EQ("fff"),
 	).One(ctx, db)
 	if err != nil {
-		w.Write([]byte("何もないお"))
+		w.Write([]byte("何もないおおおおおお"))
 		return
 	}
-	w.Write([]byte(a.FirstName))
 	w.Write([]byte(a.LastName))
+	w.Write([]byte(a.FirstName))
 }
 
 // mysqlDSN MySQLの接続に必要なdata source nameを返す

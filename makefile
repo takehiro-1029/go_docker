@@ -35,6 +35,6 @@ gen-dao:
 
 .PHONY: build
 build:
-        go build main.go
+	go build main.go
 
 

@@ -33,5 +33,8 @@ gen-handler:
 gen-dao:
 	sqlboiler mysql
 
+.PHONY: build
+build:
+        go build main.go
 
 
